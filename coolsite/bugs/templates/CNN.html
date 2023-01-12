@@ -1,0 +1,15 @@
+
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super }}
+    <p> CNN - модель</p>
+    <!-- Метод POST и установлен enctype -->
+    <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+      <!-- myfile1 - переменная передающееся в Django -->
+      <input type="file" name="myfile1">
+      <button type="submit">Загрузка</button>
+    </form>
+    <p> Вид: {{ PredictedSpecie }}</p>
+    <p>Ссылка на изображение: <a href="{{ file_url }}">{{ file_url }}</a></p>
+{% endblock %}
